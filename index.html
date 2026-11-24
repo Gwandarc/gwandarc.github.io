@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LifeOrgaHelper – Familien-Alltagsassistent</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; color: #23312f; background: #f6f8f7; line-height: 1.6; }
+  h1 { font-size: 1.9rem; margin-bottom: 0.2rem; color: #2f5d57; }
+  h2 { font-size: 1.2rem; margin-top: 2rem; color: #2f5d57; }
+  .lead { font-size: 1.1rem; color: #4a5a58; }
+  ul { padding-left: 1.2rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #cfdad7; font-size: 0.95rem; }
+  a { color: #2f5d57; }
+</style>
+</head>
+<body>
+<h1>LifeOrgaHelper</h1>
+<p class="lead">Ein privater Alltagsassistent für die Familie Nutricati. Die App läuft ausschließlich auf einem eigenen Server im Heimnetz und ist nicht öffentlich nutzbar.</p>
+
+<h2>Was die App macht</h2>
+<ul>
+  <li>Aufgaben, Einkaufszettel und Termine für alle Familienmitglieder an einem Ort</li>
+  <li>Kalender mit Feiertagen und Schulferien in Bayern sowie Wetterhinweisen</li>
+  <li>Haushaltskasse mit Belegerfassung per Foto</li>
+  <li>Auswertung des eigenen Gmail-Posteingangs: Newsletter und Werbung werden als gelesen markiert, wichtige Mails mit Fristen werden zu Aufgaben, Antworten werden nur als Entwurf vorbereitet</li>
+</ul>
+
+<h2>Warum die App Zugriff auf Google-Daten anfragt</h2>
+<p>Jedes Familienmitglied verbindet freiwillig sein eigenes Google-Konto. Die App nutzt dabei:</p>
+<ul>
+  <li><strong>Google Kalender</strong> – um Termine anzuzeigen und neue Termine einzutragen.</li>
+  <li><strong>Gmail</strong> – um eingehende Mails einzuordnen, Werbung als gelesen zu markieren und Antwortentwürfe anzulegen. Es werden keine Mails automatisch gesendet und keine Mails endgültig gelöscht.</li>
+  <li><strong>E-Mail-Adresse</strong> – um zu erkennen, welches Google-Konto verbunden ist.</li>
+</ul>
+<p>Jede Person sieht nur ihre eigenen Mails und privaten Kalender. Die Daten werden auf dem privaten Server der Familie gespeichert und nicht an Dritte verkauft oder für Werbung verwendet.</p>
+
+<footer>
+  <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><br>
+  Kontakt: Roberto Nutricati, <span class="mail" data-u="itacirtun.otrebor" data-d="moc.liamelgoog">roberto.nutricati [at] googlemail [punkt] com</span>
+</footer>
+<script>
+document.querySelectorAll('.mail').forEach(function (e) {
+  var r = function (s) { return s.split('').reverse().join(''); };
+  var a = r(e.dataset.u) + '@' + r(e.dataset.d);
+  var l = document.createElement('a');
+  l.href = 'mailto:' + a;
+  l.textContent = a;
+  e.replaceWith(l);
+});
+</script>
+</body>
+</html>

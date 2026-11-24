@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzerklärung – LifeOrgaHelper</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; color: #23312f; background: #f6f8f7; line-height: 1.6; }
+  h1 { font-size: 1.7rem; color: #2f5d57; }
+  h2 { font-size: 1.15rem; margin-top: 1.8rem; color: #2f5d57; }
+  ul { padding-left: 1.2rem; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #cfdad7; font-size: 0.95rem; }
+  a { color: #2f5d57; }
+</style>
+</head>
+<body>
+<h1>Datenschutzerklärung für LifeOrgaHelper</h1>
+<p>Stand: 24. November 2026</p>
+
+<h2>1. Verantwortlicher</h2>
+<p>Roberto Nutricati<br>
+E-Mail: <span class="mail" data-u="itacirtun.otrebor" data-d="moc.liamelgoog">roberto.nutricati [at] googlemail [punkt] com</span></p>
+<p>LifeOrgaHelper ist eine private, nicht kommerzielle Anwendung ausschließlich für die Mitglieder der Familie Nutricati. Sie wird auf einem eigenen Server im Heimnetz betrieben und ist aus dem Internet nicht erreichbar.</p>
+
+<h2>2. Welche Google-Daten verarbeitet werden</h2>
+<p>Nur wenn eine Person ihr Google-Konto in LifeOrgaHelper selbst verbindet, greift die App auf folgende Daten dieses Kontos zu:</p>
+<ul>
+  <li><strong>E-Mail-Adresse</strong> (Bereiche <code>openid</code>, <code>userinfo.email</code>): um das verbundene Konto anzuzeigen und zuzuordnen.</li>
+  <li><strong>Google Kalender</strong> (Bereich <code>calendar</code>): Termine lesen, anzeigen und auf Wunsch neue Termine eintragen.</li>
+  <li><strong>Gmail</strong> (Bereich <code>gmail.modify</code>): Betreff, Absender und Inhalt eingehender Mails lesen, um Werbung und Newsletter zu erkennen und als gelesen zu markieren, wichtige Mails mit Anfragen oder Fristen als Aufgabe anzulegen und Antwortentwürfe zu erstellen. Die App sendet keine Mails automatisch und löscht keine Mails endgültig.</li>
+</ul>
+
+<h2>3. Speicherung und Sicherheit</h2>
+<ul>
+  <li>Alle Daten werden ausschließlich auf dem privaten Server der Familie in Deutschland gespeichert.</li>
+  <li>Die Zugangsschlüssel zu Google (Tokens) werden verschlüsselt (AES-256-GCM) gespeichert und verlassen den Server nicht.</li>
+  <li>Jede Person sieht nur ihre eigenen Mails und privaten Kalender, auch Administratoren haben keinen Einblick.</li>
+  <li>Aus Mails speichert die App nur die für Aufgaben und Hinweise nötigen Angaben (z. B. Betreff, Absender, Frist).</li>
+</ul>
+
+<h2>4. Weitergabe an Dritte</h2>
+<p>Google-Daten werden nicht verkauft, nicht für Werbung genutzt und nicht an Dritte weitergegeben. Einzige Ausnahme: Wenn eine Person ausdrücklich einen Antwortentwurf mit KI-Unterstützung anfordert, wird der Inhalt der betreffenden Mail zur Formulierung an den KI-Dienst Anthropic (Claude) übermittelt. Ohne diese Anforderung findet keine Übermittlung statt.</p>
+
+<h2>5. Einhaltung der Google-Richtlinien</h2>
+<p>Die Nutzung und Weitergabe von Informationen, die LifeOrgaHelper über Google-APIs erhält, entspricht der <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, einschließlich der Anforderungen zur eingeschränkten Nutzung (Limited Use).</p>
+<p lang="en"><em>LifeOrgaHelper's use and transfer to any other app of information received from Google APIs will adhere to the Google API Services User Data Policy, including the Limited Use requirements.</em></p>
+
+<h2>6. Löschung und Widerruf</h2>
+<ul>
+  <li>In der App unter <em>Mehr → Google → Verbindung trennen</em> wird der Zugang beendet und der gespeicherte Schlüssel gelöscht.</li>
+  <li>Zusätzlich lässt sich der Zugriff jederzeit unter <a href="https://myaccount.google.com/connections">myaccount.google.com/connections</a> widerrufen.</li>
+  <li>Auf Anfrage per E-Mail werden alle zu einer Person gespeicherten Daten gelöscht.</li>
+</ul>
+
+<h2>7. Rechte der Nutzer</h2>
+<p>Jede Person hat das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung ihrer Daten sowie auf Widerspruch. Anfragen bitte an die oben genannte E-Mail-Adresse.</p>
+
+<footer>
+  <a href="index.html">Startseite</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+</footer>
+<script>
+document.querySelectorAll('.mail').forEach(function (e) {
+  var r = function (s) { return s.split('').reverse().join(''); };
+  var a = r(e.dataset.u) + '@' + r(e.dataset.d);
+  var l = document.createElement('a');
+  l.href = 'mailto:' + a;
+  l.textContent = a;
+  e.replaceWith(l);
+});
+</script>
+</body>
+</html>
