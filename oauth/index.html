@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>LifeOrgaHelper – Weiterleitung</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; max-width: 560px; margin: 0 auto; padding: 48px 20px; color: #23312f; background: #f6f8f7; line-height: 1.6; }
+  h1 { font-size: 1.4rem; color: #2f5d57; }
+</style>
+</head>
+<body>
+<h1>LifeOrgaHelper</h1>
+<p id="msg">Einen Moment, die Google-Verbindung wird an LifeOrgaHelper übergeben …</p>
+<noscript><p>Bitte JavaScript aktivieren und die Verbindung in LifeOrgaHelper neu starten.</p></noscript>
+<script>
+(function () {
+  // Erlaubte Ziele im Heimnetz. Die Zahl vor dem Punkt in "state" wählt das Ziel aus.
+  // Neue Adressen nur HINTEN anhängen, damit bestehende Nummern gültig bleiben.
+  var ZIELE = [
+    'http://ds918.fritz.box:8095'
+    // , 'https://lifeorga.example.de'   // Beispiel: späterer HTTPS-Zugang
+  ];
 
+  var msg = document.getElementById('msg');
+  var q = new URLSearchParams(window.location.search);
+  var state = q.get('state') || '';
+
+  // Adresse mit Code sofort aus dem Verlauf entfernen.
+  window.history.replaceState(null, '', window.location.pathname);
+
+  var teile = /^(\d{1,2})\.[A-Za-z0-9_-]{20,128}$/.exec(state);
+  var ziel = teile ? ZIELE[Number(teile[1])] : undefined;
+  if (!ziel) {
+    msg.textContent = 'Diese Anfrage ist ungültig oder abgelaufen. Bitte in LifeOrgaHelper unter Mehr → Google neu verbinden.';
+    return;
+  }
+
+  var weiter = new URLSearchParams();
+  ['code', 'state', 'scope', 'error'].forEach(function (k) {
+    if (q.has(k)) { weiter.set(k, q.get(k)); }
+  });
+
+  msg.textContent = 'Weiterleitung zu LifeOrgaHelper … Falls nichts passiert: Ist das Gerät im Heim-WLAN?';
+  window.location.replace(ziel + '/api/google/callback?' + weiter.toString());
+})();
+</script>
+</body>
+</html>
